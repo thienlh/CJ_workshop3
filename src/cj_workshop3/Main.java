@@ -36,7 +36,7 @@ public class Main {
                 try {
                     userChoice = menu.getChoice();
                 } catch (Exception ex) {
-                    System.out.println("---------------------------WRONG INPUT-----------------------------\n\t+ Option must be an integer number!");
+                    System.out.println("\n---------------------------WRONG INPUT!----------------------------\n\t+ Option must be an integer number!\n");
                     userChoice = 5;
                 }
                 switch (userChoice) {
@@ -44,7 +44,7 @@ public class Main {
                         try {
                             list.add();
                         } catch (Exception ex) {
-                            System.out.println("---------------------------WRONG INPUT-----------------------------\n\t+ Mark must be float value!\n\t+ Adding failed!");
+                            System.out.println("\n---------------------------WRONG INPUT!----------------------------\n\t+ Mark must be float value!\n\t+ Adding failed!\n");
                         }
                         break;
                     case 2:
@@ -54,7 +54,7 @@ public class Main {
                         try {
                             list.update();
                         } catch (Exception ex) {
-                            System.out.println("---------------------------WRONG INPUT-----------------------------\n\t+ Mark must be float value!\n\t+ Updating failed!");
+                            System.out.println("\n---------------------------WRONG INPUT-----------------------------\n\t+ Mark must be float value!\n\t+ Updating failed!\n");
                         }
                         break;
                     case 4:
@@ -67,6 +67,6 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             contine = sc.nextLine();
         } while (contine.substring(0, 1).equalsIgnoreCase("n"));
-        System.out.println("--------------------HAVE A NICE DAY. GOODBYE!----------------------");
+        System.out.println("\n--------------------HAVE A NICE DAY. GOODBYE!----------------------");
     }
 }
