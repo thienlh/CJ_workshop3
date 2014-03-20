@@ -11,10 +11,6 @@ package cj_workshop3.Person;
 
 import java.util.Scanner;
 
-/**
- *
- * @author thienlh
- */
 public class PersonList {
     //  Array of people
 
@@ -68,21 +64,21 @@ public class PersonList {
             Scanner sc = new Scanner(System.in);
             int pos = 0;    //  Variable for checking whether newCode is existed or not.
             do {
-                System.out.print("Enter the person's code: ");
+                System.out.print("Enter the student's code   : ");
                 newCode = sc.nextLine().toUpperCase();
                 pos = find(newCode);
                 if (pos >= 0) {
-                    System.out.println("This person is existed!");
+                    System.out.println("[" + newCode + "] " + list[pos].getName() + " is existed!");
                 }
             } while (pos >= 0);
-            System.out.print("Enter the person's name   : ");
+            System.out.print("Enter the student's name   : ");
             newName = sc.nextLine().toUpperCase();
-            System.out.print("Enter the person's address: ");
+            System.out.print("Enter the student's address: ");
             newAddr = sc.nextLine().toUpperCase();
-            System.out.print("Enter the person's mark   : ");
+            System.out.print("Enter the student's mark   : ");
             newMark = Float.parseFloat(sc.nextLine());
             list[count++] = new Person(newCode, newName, newAddr, newMark);
-            System.out.println("New person has been added!");
+            System.out.println("\n" + list[count-1].getName() + " has been added!\n");
         } else {
             System.out.println("The list is full!");
         }
@@ -97,11 +93,11 @@ public class PersonList {
         String removingCode;    //  Code for removing
         //  Enter a person's detail
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the code of removing person: ");
+        System.out.print("Enter the code of removing student: ");
         removingCode = sc.nextLine().toUpperCase();
         int pos = find(removingCode);
         if (pos < 0) {
-            System.out.println("This person does not exist!");
+            System.out.println("This student does not exist!");
         } else {
             System.out.println("Found: " + list[pos].toString());
             //  Shift up the remainder of the list
@@ -109,7 +105,7 @@ public class PersonList {
                 list[i] = list[i + 1];
             }
             count--;
-            System.out.println("The person " + list[pos].getName() + "(" + removingCode + ") was removed!");
+            System.out.println("The student " + removingCode + " was removed!");
         }
     }
     //  Method for update person's detail
@@ -122,27 +118,27 @@ public class PersonList {
         String updatingCode;    //  Code for updating
         //  Entering the person's code
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the person's code for updating: ");
+        System.out.print("Enter the student's code for updating: ");
         updatingCode = sc.nextLine().toUpperCase();
         int pos = find(updatingCode);
         if (pos < 0) {
-            System.out.println("The person does not exist!");
+            System.out.println("The student does not exist!");
         } else {
             System.out.println("Found: " + list[pos].toString());
             //  Update name
             String newName;
             String newAddr;
             float newMark;
-            System.out.print("Enter the person's new name   : ");
-            newName = sc.nextLine();
-            System.out.print("Enter the person's new address: ");
-            newAddr = sc.nextLine();
-            System.out.print("Enter the person's new mark   : ");
+            System.out.print("Enter [" + list[pos].getCode() + "]'s new name      : ");
+            newName = sc.nextLine().toUpperCase();
+            System.out.print("Enter [" + list[pos].getCode() + "]'s new address   : ");
+            newAddr = sc.nextLine().toUpperCase();
+            System.out.print("Enter [" + list[pos].getCode() + "]'s new mark      : ");
             newMark = Float.parseFloat(sc.nextLine());
             list[pos].setName(newName);
             list[pos].setAddr(newAddr);
             list[pos].setMark(newMark);
-            System.out.println("The person " + list[pos].getName() + "(" + updatingCode + ") was updated!");
+            System.out.println("The student [" + updatingCode + "] was updated!");
         }
     }
     //  Method for sorting list in descending order
@@ -160,7 +156,7 @@ public class PersonList {
                     Person temp;
                     temp = list[j];
                     list[j] = list[j-1];
-                    list[i-1] = temp;
+                    list[j-1] = temp;
                 }
             }
         }
@@ -171,7 +167,7 @@ public class PersonList {
             System.out.println("The list is empty!");
             return;
         }
-        System.out.println("\tLIST OF PEOPLE");
+        System.out.println("\tLIST OF STUDENTS");
         for (int i = 0; i < count; i++) {
             System.out.println(list[i].toString());
         }
