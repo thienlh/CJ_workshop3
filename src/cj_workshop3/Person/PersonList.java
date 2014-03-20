@@ -83,7 +83,9 @@ public class PersonList {
             newMark = sc.nextFloat();
             list[count++] = new Person(newCode, newName, newAddr, newMark);
             System.out.println("New person has been added!");
-        } else System.out.println("The list is full!");
+        } else {
+            System.out.println("The list is full!");
+        }
     }
     //  Method for remove a known-code person
 
@@ -98,12 +100,78 @@ public class PersonList {
         System.out.print("Enter the code of removing person: ");
         removingCode = sc.nextLine().toUpperCase();
         int pos = find(removingCode);
-        if (pos<0)  System.out.println("This person does not exist!");
-        else    {
+        if (pos < 0) {
+            System.out.println("This person does not exist!");
+        } else {
             //  Shift up the remainder of the list
-            for (int i = 0; i < count-1; i++) list[i] = list[i+1];
+            for (int i = 0; i < count - 1; i++) {
+                list[i] = list[i + 1];
+            }
             count--;
             System.out.println("The person " + list[pos].getName() + "(" + removingCode + ") was removed!");
+        }
+    }
+    //  Method for update person's detail
+
+    public void update() {
+        if (isEmpty()) {
+            System.out.println("The list is empty!");
+            return;
+        }
+        String updatingCode;    //  Code for updating
+        //  Entering the person's code
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the person's code for updating: ");
+        updatingCode = sc.nextLine().toUpperCase();
+        int pos = find(updatingCode);
+        if (pos < 0) {
+            System.out.println("The person does not exist!");
+        } else {
+            //  Update name
+            String newName;
+            String newAddr;
+            float newMark;
+            System.out.print("Enter the person's new name: ");
+            newName = sc.nextLine();
+            System.out.print("Enter the person's new address: ");
+            newAddr = sc.nextLine();
+            System.out.print("Enter the person's new mark: ");
+            newMark = Float.parseFloat(sc.nextLine());
+            list[pos].setName(newName);
+            list[pos].setAddr(newAddr);
+            list[pos].setMark(newMark);
+            System.out.println("The person " + list[pos].getName() + "(" + updatingCode + ") was updated!");
+        }
+    }
+    //  Method for sorting list in descending order
+
+    public void descSort() {
+        if (isEmpty()) {
+            System.out.println("The list is empty!");
+            return;
+        }
+        //  Bubble sort base on person's mark
+        for (int i = 0; i < count - 1; i++) {
+            for (int j = count - 1; j > i; j--) {
+                if (list[j].getMark() > list[j-1].getMark()) {
+                //  Swap 2 people
+                    Person temp;
+                    temp = list[j];
+                    list[j] = list[j-1];
+                    list[i-1] = temp;
+                }
+            }
+        }
+    }
+    //  Method for print the result
+    public void print() {
+        if (isEmpty()) {
+            System.out.println("The list is empty!");
+            return;
+        }
+        System.out.println("\tLIST OF PEOPLE");
+        for (int i = 0; i < count; i++) {
+            System.out.println(list[i].toString());
         }
     }
 }
