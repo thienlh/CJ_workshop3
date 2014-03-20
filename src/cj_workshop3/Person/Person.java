@@ -75,4 +75,8 @@ public class Person {
         mark = sc.nextFloat();
     }
     //  Output result implementation
+    @Override
+    public String toString()    {
+        return code + ", " + name + ", " + addr + ", " + mark;
+    }
 }
