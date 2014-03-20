@@ -15,13 +15,9 @@ public class Menu {
 
     protected String[] hints;
     protected int n = 0;    //  current number of hints
-    //  Create menu with <size> elements
-
-    public void Menu(int size) {
-        if (size < 1) {
-            size = 10;
-            
-        }
+    //  Constructer for creating menu with <size> elements
+    Menu(int size) {
+        if (size < 1) size = 10;
         hints = new String[size];
     }
     //  Adding a hints
