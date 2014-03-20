@@ -13,11 +13,14 @@ import java.util.Scanner;
 
 public class Menu {
 
-    protected String[] hints;
-    protected int n = 0;    //  current number of hints
+    String[] hints;
+    int n = 0;    //  current number of hints
     //  Constructer for creating menu with <size> elements
+
     Menu(int size) {
-        if (size < 1) size = 10;
+        if (size < 1) {
+            size = 10;
+        }
         hints = new String[size];
     }
     //  Adding a hints
@@ -25,7 +28,6 @@ public class Menu {
     public void add(String newHints) {
         if (n < hints.length) {
             hints[n++] = newHints;
-            
         }
     }
     //  Getting userChoice
@@ -35,12 +37,13 @@ public class Menu {
         if (n > 0) {
             //  Print menu
             for (int i = 0; i < n; i++) {
-                System.out.println((i + 1) + ".\t" + hints[i]);
-                System.out.print("Please choose an option: ");
-                //  Get user choice
-                Scanner sc = new Scanner(System.in);
-                userChoice = Integer.parseInt(sc.nextLine());
+                System.out.println((i + 1) + ".     " + hints[i]);
             }
+            System.out.print("Please choose an option: ");
+            //  Get user choice
+            Scanner sc = new Scanner(System.in);
+            userChoice = Integer.parseInt(sc.nextLine());
+
         }
         return userChoice;
     }

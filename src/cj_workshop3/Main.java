@@ -44,6 +44,7 @@ public class Main {
                     list.print();
                     break;
             }
-        } while (userChoice > 1 && userChoice < 5);
+        } while (userChoice >= 1 && userChoice < 5);
+        System.out.println("\nHAVE A NICE DAY. GOODBYE!");
     }
 }

@@ -72,7 +72,7 @@ public class Person {
         System.out.println("Enter the person's address: ");
         addr = sc.nextLine();
         System.out.println("Enter the person's mark: ");
-        mark = sc.nextFloat();
+        mark = Float.parseFloat(sc.nextLine());
     }
     //  Output result implementation
     @Override

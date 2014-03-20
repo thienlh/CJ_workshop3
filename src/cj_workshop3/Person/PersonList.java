@@ -75,12 +75,12 @@ public class PersonList {
                     System.out.println("This person is existed!");
                 }
             } while (pos >= 0);
-            System.out.print("Enter the person's name: ");
+            System.out.print("Enter the person's name   : ");
             newName = sc.nextLine().toUpperCase();
             System.out.print("Enter the person's address: ");
             newAddr = sc.nextLine().toUpperCase();
-            System.out.print("Enter the person's mark: ");
-            newMark = sc.nextFloat();
+            System.out.print("Enter the person's mark   : ");
+            newMark = Float.parseFloat(sc.nextLine());
             list[count++] = new Person(newCode, newName, newAddr, newMark);
             System.out.println("New person has been added!");
         } else {
@@ -103,6 +103,7 @@ public class PersonList {
         if (pos < 0) {
             System.out.println("This person does not exist!");
         } else {
+            System.out.println("Found: " + list[pos].toString());
             //  Shift up the remainder of the list
             for (int i = 0; i < count - 1; i++) {
                 list[i] = list[i + 1];
@@ -127,15 +128,16 @@ public class PersonList {
         if (pos < 0) {
             System.out.println("The person does not exist!");
         } else {
+            System.out.println("Found: " + list[pos].toString());
             //  Update name
             String newName;
             String newAddr;
             float newMark;
-            System.out.print("Enter the person's new name: ");
+            System.out.print("Enter the person's new name   : ");
             newName = sc.nextLine();
             System.out.print("Enter the person's new address: ");
             newAddr = sc.nextLine();
-            System.out.print("Enter the person's new mark: ");
+            System.out.print("Enter the person's new mark   : ");
             newMark = Float.parseFloat(sc.nextLine());
             list[pos].setName(newName);
             list[pos].setAddr(newAddr);
@@ -147,7 +149,7 @@ public class PersonList {
 
     public void descSort() {
         if (isEmpty()) {
-            System.out.println("The list is empty!");
+            //  System.out.println("The list is empty!");
             return;
         }
         //  Bubble sort base on person's mark
