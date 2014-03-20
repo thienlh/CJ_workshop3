@@ -54,12 +54,12 @@ public class PersonList {
     }
     //  Method for adding person to list
 
-    public void add() {
+    public void add() throws Exception {
         if (isWritable()) {
-            String newCode;
-            String newName;
-            String newAddr;
-            float newMark;
+            String newCode; //  Code for finding
+            String newName; //  New Name
+            String newAddr; //  New Address
+            float newMark;  //  New Mark
             //  Adding new person detail
             Scanner sc = new Scanner(System.in);
             int pos = 0;    //  Variable for checking whether newCode is existed or not.
@@ -110,7 +110,7 @@ public class PersonList {
     }
     //  Method for update person's detail
 
-    public void update() {
+    public void update() throws Exception {
         if (isEmpty()) {
             System.out.println("The list is empty!");
             return;

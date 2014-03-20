@@ -32,10 +32,10 @@ public class Menu {
     }
     //  Getting userChoice
 
-    public int getChoice() {
+    public int getChoice() throws Exception {
         int userChoice = 0; //  User choice value
         if (n > 0) {
-            //  Print menu
+            //  Print menut
             for (int i = 0; i < n; i++) {
                 System.out.println((i + 1) + ".     " + hints[i]);
             }

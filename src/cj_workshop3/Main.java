@@ -24,20 +24,33 @@ public class Main {
         menu.add("Update a student's detail");
         menu.add("List all students.");
         menu.add("Quit.");
-        int userChoice;
+        int userChoice = 0;
         PersonList list = new PersonList(50);
         do {
             System.out.println("\tSTUDENT MAGAGER");
-            userChoice = menu.getChoice();
+            try {
+                userChoice = menu.getChoice();
+            } catch (Exception ex) {
+                System.out.println("\n\tWRONG ITPUT\n* Option must be an integer number!");
+                userChoice = 5;
+            }
             switch (userChoice) {
                 case 1:
-                    list.add();
+                    try {
+                        list.add();
+                    } catch (Exception ex) {
+                        System.out.println("\n\tWRONG INPUT\n* Mark must be float value!\n* Adding failed!");
+                    }
                     break;
                 case 2:
                     list.remove();
                     break;
                 case 3:
-                    list.update();
+                    try {
+                        list.update();
+                    } catch (Exception ex) {
+                        System.out.println("\n\tWRONG INPUT\n* Mark must be float value!\n* Updating failed!");
+                    }
                     break;
                 case 4:
                     list.descSort();
