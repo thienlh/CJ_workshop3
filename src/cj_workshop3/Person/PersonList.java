@@ -100,10 +100,10 @@ public class PersonList {
             System.out.println("\n\tThis student does not exist!\n");
         } else {
             System.out.println("\n\tFOUND: " + list[pos].toString() + "\n");
-            System.out.print("-----> Are you sure to DELETE this student? (y/N)");
+            System.out.print("-----> Are you sure to DELETE this student? (y/N): ");
             if (sc.nextLine().substring(0, 1).equalsIgnoreCase("y")) {
                 //  Shift up the remainder of the list
-                for (int i = 0; i < count - 1; i++) {
+                for (int i = pos; i < count - 1; i++) {
                     list[i] = list[i + 1];
                 }
                 count--;
