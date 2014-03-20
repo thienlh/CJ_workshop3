@@ -37,9 +37,10 @@ public class Menu {
         if (n > 0) {
             //  Print menut
             for (int i = 0; i < n; i++) {
-                System.out.println((i + 1) + ".     " + hints[i]);
+                System.out.println("*    " + (i + 1) + ".         " + hints[i]);
             }
-            System.out.print("Please choose an option: ");
+            System.out.println("*******************************************************************");
+            System.out.print("-----> Please choose an option: ");
             //  Get user choice
             Scanner sc = new Scanner(System.in);
             userChoice = Integer.parseInt(sc.nextLine());

@@ -78,16 +78,16 @@ public class PersonList {
             System.out.print("Enter the student's mark   : ");
             newMark = Float.parseFloat(sc.nextLine());
             list[count++] = new Person(newCode, newName, newAddr, newMark);
-            System.out.println("\n" + list[count-1].getName() + " has been added!\n");
+            System.out.println("\n" + list[count - 1].getName() + " has been added!\n");
         } else {
-            System.out.println("The list is full!");
+            System.out.println("-----------------------THE LIST IS FULL!---------------------------");
         }
     }
     //  Method for remove a known-code person
 
     public void remove() {
         if (isEmpty()) {
-            System.out.println("The list is empty");
+            System.out.println("---------------------THE LIST IS EMPTY!----------------------------");
             return;
         }
         String removingCode;    //  Code for removing
@@ -112,7 +112,7 @@ public class PersonList {
 
     public void update() throws Exception {
         if (isEmpty()) {
-            System.out.println("The list is empty!");
+            System.out.println("---------------------THE LIST IS EMPTY!----------------------------");
             return;
         }
         String updatingCode;    //  Code for updating
@@ -151,25 +151,31 @@ public class PersonList {
         //  Bubble sort base on person's mark
         for (int i = 0; i < count - 1; i++) {
             for (int j = count - 1; j > i; j--) {
-                if (list[j].getMark() > list[j-1].getMark()) {
-                //  Swap 2 people
+                if (list[j].getMark() > list[j - 1].getMark()) {
+                    //  Swap 2 people
                     Person temp;
                     temp = list[j];
-                    list[j] = list[j-1];
-                    list[j-1] = temp;
+                    list[j] = list[j - 1];
+                    list[j - 1] = temp;
                 }
             }
         }
     }
     //  Method for print the result
+
     public void print() {
         if (isEmpty()) {
-            System.out.println("The list is empty!");
+            System.out.println("---------------------THE LIST IS EMPTY!----------------------------");
             return;
         }
-        System.out.println("\tLIST OF STUDENTS");
+        System.out.println("*******************************************************************");
+        System.out.println("                       LIST OF STUDENTS");
+        System.out.println("*******************************************************************");
+        System.out.println("  ID  |         NAME        |            ADDRESS          |  MARK |");
+        System.out.println("-------------------------------------------------------------------");
         for (int i = 0; i < count; i++) {
-            System.out.println(list[i].toString());
+            //  System.out.println(list[i].toString());
+            list[i].print();
         }
     }
 }

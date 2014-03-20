@@ -77,6 +77,10 @@ public class Person {
     //  Output result implementation
     @Override
     public String toString()    {
-        return code + ", " + name + ", " + addr + ", " + mark;
+        return "  "+ code + "   " + name + "   " + addr + "   " + mark;
+    }
+
+    public void print() {
+        System.out.format(" %-5s| %-20s| %-28s| %4.2f\n", code, name, addr, mark);
     }
 }
